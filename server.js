@@ -5,7 +5,7 @@ const fetch = (...args) =>
 var bodyParser = require('body-parser');
 
 const CLIENT_ID = "1ae3e0de7d70a65589dd";
-const CLIENT_SECRET = "1a36b3621c8e6de8bc8325a00384b823ab80ed81"
+const CLIENT_SEC = "1a36b3621c8e6de8bc8325a00384b823ab80ed81"
 
 var app = express();
 
@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.get('/getAccessToken', async function (req, res){
     console.log(req.query.code);
 
-    const params  = "?client_id=" + CLIENT_ID + "&client_secret=" + CLIENT_SECRET + "&code=" + req.query.code;
+    const params  = "?client_id=" + CLIENT_ID + "&client_secret=" + CLIENT_SEC + "&code=" + req.query.code;
 
     await fetch("https://github.com/login/oauth/access_token" + params, {
         method: "POST",
